@@ -63,7 +63,19 @@ set laststatus=2
 set noshowmode
 " Enable relative line numbers
 set relativenumber
+"Setting for copy-past mode
+set pastetoggle=<F3>
+"Auto wrap after reach 80 character
+set textwidth=80
 
+" show existing tab with 4 spaces width
+ set tabstop=4
+" when indenting with '>', use 4 spaces width
+ set shiftwidth=4
+" On pressing tab, insert 4 spaces
+ set expandtab
+
+ """""""""""""""""""""""""""""""""""""""""
 "Setting for searching
 " Incrementally search while typing
  set incsearch
@@ -77,6 +89,8 @@ set relativenumber
    nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
  endif
 
+
+ """""""""""""""""""""""""""""""""""""""""
  "Setting for fzf searching
  
 " Jump to specific file
@@ -85,3 +99,17 @@ set relativenumber
  nnoremap <C-F> :BLines<cr>
 " Search whole project
  nnoremap \ :Rg<space>
+
+ """""""""""""""""""""""""""""""""""""""""
+ "Setting for NERDTree
+ map <F1> :call NERDTreeToggleAndFind()<cr>
+ map <F2> :NERDTreeToggle<CR>
+ function! NERDTreeToggleAndFind()
+ if (exists('t:NERDTreeBufName') && bufwinnr(t:NERDTreeBufName) != -1)
+       execute ':NERDTreeClose'
+ else
+       execute ':NERDTreeFind'
+ endif
+ endfunction
+
+

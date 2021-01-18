@@ -36,7 +36,8 @@ Plugin 'albertomontesg/lightline-asyncrun'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim' 
 Plugin 'justinmk/vim-sneak'
-
+Plugin 'xolox/vim-easytags'
+Plugin 'xolox/vim-misc'
 
 " Plugin of lightline
 Plugin 'itchyny/lightline.vim'
@@ -95,11 +96,16 @@ set textwidth=80
  
 " Jump to specific file
  nnoremap <C-P> :Files<cr>
-" Search in file
+ " Ctrl + t  :open file in new tab
+ " Ctrl + x  :open file split
+ " C + w C + w to switch between split
+ " Search in file
  nnoremap <C-F> :BLines<cr>
 " Search whole project
  nnoremap \ :Rg<space>
-
+" sudo apt-get install silversearcher-a 
+" Install the ag for searching first
+ nnoremap <C-g> :Ag<Cr>
  """""""""""""""""""""""""""""""""""""""""
  "Setting for NERDTree
  map <F1> :call NERDTreeToggleAndFind()<cr>
@@ -113,3 +119,11 @@ set textwidth=80
  endfunction
 
 
+ """""""""""""""""""""""""""""""""""""""""
+ "Setting for Ctags - jumnp in to the file definition
+ " install ctags by sudo apt-get install ctags
+ " Using command 'ctags -R .' in your root working to set DB"
+ " If you nervous, take a look in this link :
+ " https://kulkarniamit.github.io/whatwhyhow/howto/use-vim-ctags.html
+ "
+ 

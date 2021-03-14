@@ -38,7 +38,7 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'justinmk/vim-sneak'
 Plugin 'xolox/vim-easytags'
 Plugin 'xolox/vim-misc'
-
+Plugin 'gsiano/vmux-clipboard'
 " Plugin of lightline
 Plugin 'itchyny/lightline.vim'
 
@@ -126,4 +126,10 @@ set textwidth=80
  " If you nervous, take a look in this link :
  " https://kulkarniamit.github.io/whatwhyhow/howto/use-vim-ctags.html
  "
- 
+ " Jumping in to definition in a new tab
+ "
+ nnoremap <C-]> <C-w><C-]><C-w>T
+
+let mapleader = ","
+map <silent> <leader>y :WriteToVmuxClipboard<cr>
+map <silent> <leader>p :ReadFromVmuxClipboard<cr>

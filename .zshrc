@@ -1,6 +1,7 @@
 # If you come from bash you might have to change your $PATH.
- export PATH=$HOME/bin:/usr/local/bin:$PATH
-
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+export FZF_BASE=$HOME/.vim/bundle/fzf
+export PATH=~/bin_local:$PATH 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/tdinhcong/.oh-my-zsh"
 
@@ -71,7 +72,13 @@ export ZSH="/home/tdinhcong/.oh-my-zsh"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+  git
+  fzf
+  fd
+  python
+  tmux
+  )
 
 source $ZSH/oh-my-zsh.sh
 
@@ -98,6 +105,13 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+ alias cfzsh="vim ~/.zshrc"
+ alias ohmyzsh="vim ~/.oh-my-zsh"
+ alias ll='ls -la'
+ alias pdf='evince'
+ alias pi='ssh pi@192.168.2.69'
+ # export PATH=~/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin:$PATH
+# export TOOLCHAIN=~/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/
+# export CROSS_COMPILE=arm-linux-gnueabihf-
+# export ARCH=arm
 

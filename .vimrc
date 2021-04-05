@@ -130,7 +130,7 @@ set textwidth=80
  "
  nnoremap <C-]> <C-w><C-]><C-w>T
 
-# yy + ,y in one pane, ,p + p in another:
+"yy + ,y in one pane, ,p + p in another:
 
 let mapleader = ","
 map <silent> <leader>y :WriteToVmuxClipboard<cr>

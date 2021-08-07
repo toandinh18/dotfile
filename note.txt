@@ -1,0 +1,15 @@
+
+###################### network  ############################
+/etc/network/interface
+  auto lo
+  iface lo inet loopback
+ 
+  auto
+  iface enp0s3 inet static
+      address 192.168.2.11
+      netmask 255.255.255.0
+      gateway 192.168.2.1
+      broadcast 192.168.2.255
+    
+sudo ip link set dev enp0s3 up
+sudo ifup <device_network>

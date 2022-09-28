@@ -36,10 +36,18 @@ Plugin 'albertomontesg/lightline-asyncrun'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim' 
 Plugin 'justinmk/vim-sneak'
-
-
+Plugin 'xolox/vim-easytags'
+Plugin 'xolox/vim-misc'
+Plugin 'gsiano/vmux-clipboard'
 " Plugin of lightline
 Plugin 'itchyny/lightline.vim'
+" Plugin for flutter
+Plugin 'dart-lang/dart-vim-plugin'
+Plugin 'thosakwe/vim-flutter'
+" Syntax for dart language
+"Plugin 'neoclide/coc.nvim'
+Plugin 'natebosch/vim-lsc'
+Plugin 'natebosch/vim-lsc-dart'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -95,11 +103,16 @@ set textwidth=80
  
 " Jump to specific file
  nnoremap <C-P> :Files<cr>
-" Search in file
+ " Ctrl + t  :open file in new tab
+ " Ctrl + x  :open file split
+ " C + w C + w to switch between split
+ " Search in file
  nnoremap <C-F> :BLines<cr>
 " Search whole project
- nnoremap \ :Rg<space>
-
+" nnoremap \ :Rg<space>
+" sudo apt-get install silversearcher-ag
+" Install the ag for searching first
+ nnoremap <C-g> :Ag<Cr>
  """""""""""""""""""""""""""""""""""""""""
  "Setting for NERDTree
  map <F1> :call NERDTreeToggleAndFind()<cr>
@@ -112,4 +125,51 @@ set textwidth=80
  endif
  endfunction
 
+
+ """""""""""""""""""""""""""""""""""""""""
+ "Setting for Ctags - jumnp in to the file definition
+ " install ctags by sudo apt-get install ctags
+ " Using command 'ctags -R .' in your root working to set DB"
+ " If you nervous, take a look in this link :
+ " https://kulkarniamit.github.io/whatwhyhow/howto/use-vim-ctags.html
+ "
+ " Jumping in to definition in a new tab
+ "
+ nnoremap <C-]> <C-w><C-]><C-w>T
+
+"yy + ,y in one pane, ,p + p in another:
+
+let mapleader = ","
+map <silent> <leader>y :WriteToVmuxClipboard<cr>
+map <silent> <leader>p :ReadFromVmuxClipboard<cr>
+
+
+
+ """""""""""""""""""""""""""""""""""""""""
+ " Setting for Flutter
+ " Some of these key choices were arbitrary;
+ " " it's just an example.
+  nnoremap <leader>fa :FlutterRun<cr>
+  nnoremap <leader>fq :FlutterQuit<cr>
+  nnoremap <leader>fr :FlutterHotReload<cr>
+  nnoremap <leader>fR :FlutterHotRestart<cr>
+  nnoremap <leader>fD :FlutterVisualDebug<cr>
+ 
+ """""""""""""""""""""""""""""""""""""""""
+ " Setting for Flutter
+ "coc config
+ let g:coc_global_extensions = [
+    \ 'coc-snippets',
+    \ 'coc-flutter',
+    \ ]
+ nmap <silent> gd <Plug>(coc-definition)
+ nmap <silent> gy <Plug>(coc-type-definition)
+ nmap <silent> gi <Plug>(coc-implementation)
+ nmap <silent> gr <Plug>(coc-references)
+
+ let g:dart_style_guide = 2
+" Syntax for dart language
+"
+ let g:lsc_server_commands = {'dart': 'dart_language_server'}
+ let g:lsc_enable_autocomplete = v:true
 

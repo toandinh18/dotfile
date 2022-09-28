@@ -1,0 +1,10 @@
+[user]
+	email = congtoananonymous@gmail.com
+    name = toandinh18
+
+[alias]
+    st = status
+    br = branch
+ 
+[core]
+    editor = vim

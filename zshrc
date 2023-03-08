@@ -1,9 +1,13 @@
 # If you come from bash you might have to change your $PATH.
+if [ -z "$TMUX" ]; then
+    tmux attach -t WORK || tmux new-session -s WORK 
+fi
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export FZF_BASE=$HOME/.vim/bundle/fzf
 export PATH=~/bin_local:$PATH 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/tdinhcong/.oh-my-zsh"
+export TERM=xterm-256color
+export ZSH="/home/dinhtoan/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -109,7 +113,6 @@ source $ZSH/oh-my-zsh.sh
  alias ohmyzsh="vim ~/.oh-my-zsh"
  alias ll='ls -la'
  alias pdf='evince'
- alias pi='ssh pi@192.168.2.69'
  # export PATH=~/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin:$PATH
 # export TOOLCHAIN=~/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/
 # export CROSS_COMPILE=arm-linux-gnueabihf-

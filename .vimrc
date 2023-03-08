@@ -17,16 +17,13 @@ Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
-Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
 " Plugin 'file:///home/gmarik/path/to/plugin'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
-Plugin 'scrooloose/nerdtree'
 
 Plugin 'sainnhe/artify.vim'
 Plugin 'itchyny/vim-gitbranch'
@@ -41,13 +38,6 @@ Plugin 'xolox/vim-misc'
 Plugin 'gsiano/vmux-clipboard'
 " Plugin of lightline
 Plugin 'itchyny/lightline.vim'
-" Plugin for flutter
-Plugin 'dart-lang/dart-vim-plugin'
-Plugin 'thosakwe/vim-flutter'
-" Syntax for dart language
-"Plugin 'neoclide/coc.nvim'
-Plugin 'natebosch/vim-lsc'
-Plugin 'natebosch/vim-lsc-dart'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -98,6 +88,10 @@ set textwidth=80
  endif
 
 
+"""""""""""""""""""""""""""""""""""""""""
+"mapping Esc to jk or kj
+inoremap jj <Esc>
+
  """""""""""""""""""""""""""""""""""""""""
  "Setting for fzf searching
  
@@ -109,8 +103,8 @@ set textwidth=80
  " Search in file
  nnoremap <C-F> :BLines<cr>
 " Search whole project
-" nnoremap \ :Rg<space>
-" sudo apt-get install silversearcher-ag
+ nnoremap \ :Rg<space>
+" sudo apt-get install silversearcher-a 
 " Install the ag for searching first
  nnoremap <C-g> :Ag<Cr>
  """""""""""""""""""""""""""""""""""""""""
@@ -137,39 +131,6 @@ set textwidth=80
  "
  nnoremap <C-]> <C-w><C-]><C-w>T
 
-"yy + ,y in one pane, ,p + p in another:
-
 let mapleader = ","
 map <silent> <leader>y :WriteToVmuxClipboard<cr>
 map <silent> <leader>p :ReadFromVmuxClipboard<cr>
-
-
-
- """""""""""""""""""""""""""""""""""""""""
- " Setting for Flutter
- " Some of these key choices were arbitrary;
- " " it's just an example.
-  nnoremap <leader>fa :FlutterRun<cr>
-  nnoremap <leader>fq :FlutterQuit<cr>
-  nnoremap <leader>fr :FlutterHotReload<cr>
-  nnoremap <leader>fR :FlutterHotRestart<cr>
-  nnoremap <leader>fD :FlutterVisualDebug<cr>
- 
- """""""""""""""""""""""""""""""""""""""""
- " Setting for Flutter
- "coc config
- let g:coc_global_extensions = [
-    \ 'coc-snippets',
-    \ 'coc-flutter',
-    \ ]
- nmap <silent> gd <Plug>(coc-definition)
- nmap <silent> gy <Plug>(coc-type-definition)
- nmap <silent> gi <Plug>(coc-implementation)
- nmap <silent> gr <Plug>(coc-references)
-
- let g:dart_style_guide = 2
-" Syntax for dart language
-"
- let g:lsc_server_commands = {'dart': 'dart_language_server'}
- let g:lsc_enable_autocomplete = v:true
-
